@@ -28,7 +28,7 @@
                 </button>
                 <div class="dropdown-content">
                     <div class="buttonStyle">
-                        <button onclick="navigator()">Navigator</button>
+                        <button onclick="navigatorInfo()">Navigator</button>
                     </div>
                     <div class="buttonStyle">
                         <button onclick="windowInfo()">Window</button>
@@ -69,6 +69,7 @@
             <h1>Hi this is me!</h1>
             <h6 style="color:white;text-align:center;font-family:Arial,serif;">This is my Assignment 7, just making a sample website!</h6>
             <img src="https://i.gifer.com/g3TA.gif">
+            <h5>Hello mahal ko!</h5>
             </div>
         </section>
 
@@ -108,8 +109,8 @@
                     }
             }
 
-            function navigator() {
-                var nav = "Browser Name: " + navigator.appCodeName + "\n" +
+            function navigatorInfo() {
+                var nav = "Browser Name: " + navigator.appName + "\n" +
                     "Browser Engine Name: " + navigator.product + "\n" +
                     "Browser Version: " + navigator.appVersion + "\n" +
                     "Browser User Agent: " + navigator.userAgent + "\n" +
