@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Assignment 7! Simple Webpage</title>
+        <link rel="stylesheet" href="Assignment7.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Kwong's Assignment 7</h1>
+            <h2 style="color:#6F00FF;text-align:center;font-size:30px;font-family:'Comic Sans MS',serif;">CSS 355 Simple Webpage</h2>
+        </div>
+
+        <div class="navbar">
+            <a href="#home" onclick="showPage('home')">Home</a>
+            <div class="dropdown">
+            <button class="dropbtn">Course
+                <i class="fa fa-caret-down"></i>
+            </button>
+                <div class="dropdown-content">
+                    <a href="https://gaia.cs.umass.edu/kurose_ross/authors.php">Course Textbook</a>
+                    <a href="https://www.w3schools.com/">W3Schools</a>
+                    <a href="https://www.geeksforgeeks.org/">Geeks4Geeks</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Browser
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="buttonStyle">
+                        <button onclick="navigator()">Navigator</button>
+                    </div>
+                    <div class="buttonStyle">
+                        <button onclick="windowInfo()">Window</button>
+                    </div>
+                    <div class="buttonStyle">
+                        <button onclick="screenInfo()">Screen</button>
+                    </div>
+                    <div class="buttonStyle">
+                        <button onclick="locationInfo()">Location</button>
+                    </div>
+                    <div class="buttonStyle">
+                        <button onclick="geolocationInfo()">Geolocation</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">About Me
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#aboutme" onclick="showPage('aboutme')">Kwong</a>
+                    <a href="#contactme" onclick="showPage('contactme')">Contact me!</a>
+                </div>
+            </div>
+        </div>
+
+         <section id="home" style="display: none;">
+            <div class="welcome">
+                <p>Welcome, Thanks for checking my site! :)</p>
+            </div>
+            <div class="biggif">
+                <img src="https://i.pinimg.com/originals/4c/23/63/4c236364db3543337354bc3acc1fe792.gif" alt="A gif should be here!">
+            </div>
+         </section>
+
+         <section id="aboutme" style="display: none;">
+            <div class="about">
+            <h1>Hi this is me!</h1>
+            <h6 style="color:white;text-align:center;font-family:Arial,serif;">This is my Assignment 7, just making a sample website!</h6>
+            <img src="https://i.gifer.com/g3TA.gif">
+            </div>
+        </section>
+
+        <section id="contactme" style="display: none;">
+            <div class="contact">
+                <h2>Send me an email!</h2>
+                <form action="mailto:someone@example.com" method="post" enctype="text/plain">
+                    Name:<br>
+                    <input type="text" name="name"><br>
+                    E-mail:<br>
+                    <input type="text" name="mail"><br>
+                    Comment:<br>
+                    <input type="text" name="comment" size="50"><br><br>
+                    <input type="submit" value="Send">
+                    <input type="reset" value="Reset">
+                </form>
+                <img src="https://media3.giphy.com/media/58s31i8iRsgwKeJvGM/200w.gif?cid=6c09b952jml5u1zcvvc58j8nff5ouyeo6os2j6ouweee7bxa&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="An image should be here">
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() { //Shows home first
+                var homeSection = document.getElementById('home');
+                if (homeSection) {
+                    homeSection.style.display = 'block';
+                }
+            });
+            function showPage(pageId) { //Found this to hide and show sections
+                var sections = document.querySelectorAll('section');
+                sections.forEach(function(section) {
+                section.style.display = 'none';
+                });
+
+                var selectedSection = document.getElementById(pageId);
+                    if (selectedSection) {
+                        selectedSection.style.display = 'block';
+                    }
+            }
+
+            function navigator() {
+                var nav = "Browser Name: " + navigator.appCodeName + "\n" +
+                    "Browser Engine Name: " + navigator.product + "\n" +
+                    "Browser Version: " + navigator.appVersion + "\n" +
+                    "Browser User Agent: " + navigator.userAgent + "\n" +
+                    "Browser Platform: " + navigator.platform + "\n" +
+                    "Browser Language: " + navigator.language
+                alert(nav)
+            }
+
+            function windowInfo(){
+                var infoWindow = "Window Inner Height: " + window.innerWidth + "\n" +
+                    "Window Inner Height: " + window.innerHeight;
+                alert(infoWindow)
+            }
+            function screenInfo() {
+                var infoScreen = "Screen Width: " + screen.width + "\n" +
+                    "Screen Height: " + screen.height + "\n" +
+                    "Available Screen Width: " + screen.availWidth + "\n" +
+                    "Available Screen Height: " + screen.availHeight + "\n" +
+                    "Screen Color Depth: " + screen.colorDepth + "\n" +
+                    "Screen Pixel Depth: " + screen.pixelDepth
+                alert(infoScreen)
+            }
+
+            function locationInfo() {
+                var infoLocation = "Page URL is: " + window.location.href + "\n" +
+                    "Page domain is: " + window.location.hostname + "\n" +
+                    "Page path and filename are: " + window.location.pathname + "\n" +
+                    "Page web protocol is: " + window.location.protocol
+                alert(infoLocation)
+            }
+
+            function geolocationInfo() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(position => {
+                        alert("Latitude: " + position.coords.latitude +
+                            "\nLongitude: " + position.coords.longitude);
+                    });
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            }
+
+        </script>
+    </body>
+</html>
